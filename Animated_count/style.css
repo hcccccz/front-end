@@ -30,3 +30,13 @@ h4 {
     transform: translate(-50%, -50%); /*元素向左上移动自身宽高的50%从而实现真正居住*/
     text-align: center;
 }
+
+@keyframes hide { /*定义动画的名字*/
+    0% {
+        transform: translate(-50%, -50%) scale(1); /*元素居中并且缩放至原本大小*/
+    }
+
+    100% {
+        transform: translate(-50%, -50%);
+    }
+}
