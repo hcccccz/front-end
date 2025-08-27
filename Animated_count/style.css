@@ -76,12 +76,95 @@ h4 {
 .nums {
     color: #3498db;
     font-size: 50px;
-    position: relative;
+    position: relative; /*给子元素的 position: abosolute做参考*/
     overflow: hidden;
     width: 250px;
     height: 50px;
 }
 
 .nums span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(120deg);
+    /* 表示绕 transform-origin（变换原点，默认是元素中心） 顺时针旋转。 */
+    transform-origin: bottom center;
+}
 
+.nums span.in {
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.nums span.out {
+    animation: goOut 0.5s ease-in-out;
+    /* 开始和结束时慢 中间快 */
+}
+
+@keyframes goIn {
+    0% {
+        transform: translate(-50%, -50%) rotate(120deg);
+    }
+    30% {
+        transform: translate(-50%, -50%) rotate(-20deg);
+    }
+    60% {
+        transform: translate(-50%, -50%) rotate(10deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+}
+
+@keyframes goOut {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    60% {
+        transform: translate(-50%, -50%) rotate(20deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(-120deg);
+    }
+}
+
+#replay {
+    background-color: #3498db;
+    border-radius: 3px;
+    border: none;
+    color: aliceblue;
+    padding: 5px;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.3s;
+    /* css属性发生变化时哪些属性要过度 过度时间是多少 */
+}
+
+#replay span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 3s;
+}
+
+#replay span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+
+
+#replay:hover span {
+    padding-right: 25px;
+}
+
+#replay:hover span:after {
+
+    opacity: 1;
+    right: 0;
 }
