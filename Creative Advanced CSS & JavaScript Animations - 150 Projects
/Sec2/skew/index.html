@@ -7,18 +7,21 @@
     <style>
         img {
             width: 300px;
-            display: block;
             margin: auto;
             margin-top: 200px;
-            transition: transform 2s ease-in-out;
+            display: block;
+            transition: transform 2s;
         }
+
         img:hover {
-            transform: scale(2);
+            /* transform: skewX(30deg); */
+            /* transform: skewX(-30deg); */
+            /* transform: skewY(30deg); */
+            transform: skew(30deg, 30deg);
         }
     </style>
 </head>
 <body>
     <img src="cat.jpg" alt="">
-
 </body>
 </html>
